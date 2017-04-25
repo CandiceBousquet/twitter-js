@@ -1,22 +1,21 @@
 const express = require('express');
+const volleyball = require('volleyball')
+const nunjucks = require('nunjucks')
+const routes = require('./routes')
 const app = express();
 
-var status;
 
+//nunjucks
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
+nunjucks.configure('views', { noCache: true });
 
-app.use("/", function(req, res, next) {
-	// res.on("end", () => {
-	// 	console.log(res);
-	// });
-	console.log(req.method, req.url, res.status);
-	next();
-});
+//express
+app.use(volleyball); //first call: before following func, last call: after
+app.use(express.static('public'))
+app.use("/", routes)
 
-app.get("/", function(req, res) {
-	res.status(200).send("welcome!");
-});
-
-const PORT = 3000;
+const PORT = 3001;
 app.listen(PORT, function() {
-	console.log("server listening");
+    console.log("server listening");
 });
