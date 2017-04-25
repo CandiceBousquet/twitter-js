@@ -7,6 +7,40 @@ body {
 
 /* Wrapper for page content to push down footer */
 
+h4 {
+    font-size: 25px;
+    padding-left: 15px;
+    padding-right: 50px;
+    display: inline-block;
+    color: #aaaaff;
+    font-weight: bold;
+}
+
+p {
+    color: #000000
+}
+
+.tweetLink {
+    color: #0000ff;
+    display: block;
+}
+
+.tweetAvatar {
+    display: inline-block;
+    float: left;
+    clear: left;
+    max-width: 100px;
+    max-height: 85px;
+    width: auto;
+    height: auto;
+}
+
+#tweetText {
+    display: inline-block;
+    color: #1155aa;
+    padding-left: 15px;
+}
+
 #wrap {
     min-height: 100%;
     height: auto;
@@ -16,12 +50,28 @@ body {
     padding: 0 0 60px;
 }
 
+.tweetLine {
+    list-style: none;
+    padding: 30px;
+}
+
 
 /* Set the fixed height of the footer here */
 
 #footer {
     height: 60px;
     background-color: #f5f5f5;
+}
+
+#namefield {
+    width: 40%;
+    resize: both;
+    overflow: auto;
+}
+
+#tweetSubmit {
+    display: inline-block;
+    float: right;
 }
 
 

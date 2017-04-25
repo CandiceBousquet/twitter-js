@@ -3,6 +3,8 @@
 <div class="page-header">
     <h1>Welcome to Twitter.js!</h1>
 </div>
+
+
 <div class="row">
     <div class="col-md-3">
         <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
@@ -10,11 +12,28 @@
     </div>
     <div class="col-md-9">
 
-        <!-- display tweets here -->
-        {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
-        {% endfor %}
+        {% if showForm %}
+        <form action="/tweets" method="POST">
+            <label for="name_field">Name:</label>
+            <input id="namefield" class="form-control" name="name" type="text" value="{{tweetName}}" id="name_field" />
 
+            <label for="text_field">Text:</label>
+            <input class="form-control" name="text" type="text" id="text_field" style="width: 350px;" />
+
+            <input id="tweetSubmit" type="submit" value="Submit" />
+        </form>
+        {% endif %}
+
+        <!-- display tweets here -->
+        <ul id="freshTweets">
+            {% for tweet in tweets %}
+            <li class="tweetLine">
+                <img class="tweetAvatar" src="{{tweet.photo}}"></img>
+                <h4><a class="tweetLink" href="/users/{{tweet.name}}">{{tweet.name}}</a></h4>
+                <p id="tweetText">{{tweet.content}}</p>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 

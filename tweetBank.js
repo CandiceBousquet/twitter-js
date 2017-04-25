@@ -2,8 +2,8 @@ const _ = require('lodash');
 
 var data = [];
 
-function add(name, content) {
-    data.push({ name: name, content: content });
+function add(photo, name, content) {
+    data.push({ photo: photo, name: name, content: content });
 }
 
 function list() {
@@ -36,5 +36,6 @@ const getFakeTweet = function() {
 };
 
 for (let i = 0; i < 10; i++) {
-    module.exports.add(getFakeName(), getFakeTweet());
+    module.exports.add("../twitteregg.jpeg", getFakeName(), getFakeTweet());
 }
+module.exports.add("../../samface.png", "Sam", "Hi there")
